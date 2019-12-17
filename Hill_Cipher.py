@@ -71,9 +71,3 @@ if __name__=="__main__":
     key_enc = input("Input Your Key_Enc Matrix >> ")
     key_enc = [[6, 24, 1], [13, 16, 10], [20, 17, 15]]
     print crack(cipher, key_enc, alpha26)
-
-
-
-    
-
-    
