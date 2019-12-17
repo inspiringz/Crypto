@@ -44,11 +44,8 @@ def crack(cipher, key_enc, alpha):
     key_enc = sp.Matrix(key_enc)
     # Calculate the Key_Dec 
     key_dec = key_enc.inv_mod(len(alpha))
-    mat_cipher = stringToMatrix(cipher, alpha, key_enc.shape[0])
-    mat_plain = key_dec * mat_cipher
-    plain = matrixToString(mat_plain, alpha, key_enc.shape[0])
-    return plain
-
+    key_dec = key_dec.applyfunc(lambda x: x % len(alpha))
+    return encrypt(cipher, key_dec, alpha)
 
 
 if __name__=="__main__":
@@ -74,4 +71,9 @@ if __name__=="__main__":
     key_enc = input("Input Your Key_Enc Matrix >> ")
     key_enc = [[6, 24, 1], [13, 16, 10], [20, 17, 15]]
     print crack(cipher, key_enc, alpha26)
+
+
+
+    
+
     
