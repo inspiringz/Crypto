@@ -47,7 +47,6 @@ def crack(cipher, key_enc, alpha):
     key_dec = key_dec.applyfunc(lambda x: x % len(alpha))
     return encrypt(cipher, key_dec, alpha)
 
-
 if __name__=="__main__":
     # Input Plain Text
     plain = raw_input("Input Plain Text >> ")
@@ -56,18 +55,18 @@ if __name__=="__main__":
     key_enc = input("Input Your Key Matrix >> ")
     key_enc = [[6, 24, 1], [13, 16, 10], [20, 17, 15]]
     # Encrypt
-    print encrypt(plain, key_enc, alpha26)
+    print "> Cipher Text: {}".format(encrypt(plain, key_enc, alpha26))
     # POH
     # Input Cipher Text
     cipher = raw_input("Input Cipher Text >> ")
     # cipher = POH
     key_dec = input("Input Your Key Matrix >> ")
     key_dec = [[8, 5, 10], [21, 8, 21], [21, 12, 8]]
-    print decrypt(cipher, key_dec, alpha26)
+    print "> Plian Text: {}".format(decrypt(cipher, key_dec, alpha26))
     # ACT
     # Input Cipher to Crack
     cipher = raw_input("Input Cipher Text (Crack)>> ")
     # Input the Key_Enc Matrix
     key_enc = input("Input Your Key_Enc Matrix >> ")
     key_enc = [[6, 24, 1], [13, 16, 10], [20, 17, 15]]
-    print crack(cipher, key_enc, alpha26)
+    print "> Plian Text: {}".format(crack(cipher, key_enc, alpha26))
